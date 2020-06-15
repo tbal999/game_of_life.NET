@@ -1,0 +1,9 @@
+C:\Users\thoma\Desktop\C#\Life\Lifeforms\bin\Debug\Lifeforms.exe.config
+C:\Users\thoma\Desktop\C#\Life\Lifeforms\bin\Debug\Lifeforms.exe
+C:\Users\thoma\Desktop\C#\Life\Lifeforms\bin\Debug\Lifeforms.pdb
+C:\Users\thoma\Desktop\C#\Life\Lifeforms\obj\Debug\Lifeforms.csprojAssemblyReference.cache
+C:\Users\thoma\Desktop\C#\Life\Lifeforms\obj\Debug\Lifeforms.Form1.resources
+C:\Users\thoma\Desktop\C#\Life\Lifeforms\obj\Debug\Lifeforms.Properties.Resources.resources
+C:\Users\thoma\Desktop\C#\Life\Lifeforms\obj\Debug\Lifeforms.csproj.GenerateResource.cache
+C:\Users\thoma\Desktop\C#\Life\Lifeforms\obj\Debug\Lifeforms.exe
+C:\Users\thoma\Desktop\C#\Life\Lifeforms\obj\Debug\Lifeforms.pdb
