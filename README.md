@@ -1,5 +1,7 @@
 # game_of_life.NET
-cellular automaton game in C#
+cellular automaton game in C# that can handle conway's game of life.
+
+For more S/B rules go here: http://www.mirekw.com/ca/rullex_life.html 
 
 Just built this to keep up my understanding of C#, but looking to update GUI to be prettier
 
