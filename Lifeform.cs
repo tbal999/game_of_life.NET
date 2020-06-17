@@ -45,34 +45,53 @@ namespace Lifeform
             }
             return Output;
         }
-        public string Display(List<List<Lifeform.Life>> world)
+        public Bitmap Display(List<List<Lifeform.Life>> world)
         {
-            var text = "";
+            Bitmap bmp = new Bitmap(640, 320);
             for (var yindex = 0; yindex < world.Count(); yindex++)
             {
                 for (var xindex = 0; xindex < world[yindex].Count(); xindex++)
                 {
                     if (world[yindex][xindex].alive == 0)
                     {
-                        text += ".";
+                        bmp.SetPixel(xindex, yindex, Color.FromArgb(255, 0, 0, 0));
                     }
                     else
                     {
-                        text += "o";
+                        if (world[yindex][xindex].still < 4)
+                        {
+                            bmp.SetPixel(xindex, yindex, Color.FromArgb(255, 255, 255, 255));
+                        }
+                        else if (world[yindex][xindex].still < 30)
+                        {
+                            bmp.SetPixel(xindex, yindex, Color.FromArgb(255, 255, 0, 0));
+                        }
+                        else
+                        {
+                            bmp.SetPixel(xindex, yindex, Color.FromArgb(255, 0, 255, 0));
+                        }
                     }
                     if (world[yindex][xindex].next == 0)
                     {
                         world[yindex][xindex].alive = 0;
+                        if (world[yindex][xindex].still > 0)
+                        {
+                            world[yindex][xindex].still--;
+                        }
                     }
                     else
                     {
                         world[yindex][xindex].alive = 1;
+                        if (world[yindex][xindex].still <= 31)
+                        {
+                            world[yindex][xindex].still++;
+                        }
                     }
 
                 }
-                text += "\n";
+                
             }
-            return text;
+            return bmp;
         }
         public List<List<Lifeform.Life>> Seed(List<List<Lifeform.Life>> world, int multiplier)
         {

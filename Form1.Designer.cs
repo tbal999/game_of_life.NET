@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.button = new System.Windows.Forms.Button();
-            this.OUT = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -38,6 +37,10 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.OUT = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button
@@ -49,16 +52,6 @@
             this.button.Text = "Run";
             this.button.UseVisualStyleBackColor = true;
             this.button.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // OUT
-            // 
-            this.OUT.AutoSize = true;
-            this.OUT.Location = new System.Drawing.Point(44, 85);
-            this.OUT.Name = "OUT";
-            this.OUT.Size = new System.Drawing.Size(67, 13);
-            this.OUT.TabIndex = 1;
-            this.OUT.Text = "Game of Life";
-            this.OUT.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -134,11 +127,46 @@
             this.textBox3.TabIndex = 9;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
+            // OUT
+            // 
+            this.OUT.AutoSize = true;
+            this.OUT.Location = new System.Drawing.Point(69, 62);
+            this.OUT.Name = "OUT";
+            this.OUT.Size = new System.Drawing.Size(67, 13);
+            this.OUT.TabIndex = 1;
+            this.OUT.Text = "Game of Life";
+            this.OUT.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(36, 103);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(700, 300);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(584, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "label3";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.OUT);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
@@ -147,11 +175,11 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.OUT);
             this.Controls.Add(this.button);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Cellular Automaton";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,7 +188,6 @@
         #endregion
 
         private System.Windows.Forms.Button button;
-        private System.Windows.Forms.Label OUT;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -169,6 +196,9 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label OUT;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

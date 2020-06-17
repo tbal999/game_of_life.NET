@@ -18,6 +18,9 @@ namespace Lifeforms
         public List<List<Lifeform.Life>> World = new List<List<Lifeform.Life>>();
         public System.Windows.Forms.Timer Timer1;
         int counter = 80;
+        int mousex = 0;
+        int mousey = 0;
+        bool clicking = false;
         public Form1()
         {
             
@@ -25,6 +28,7 @@ namespace Lifeforms
             InitializeTimer();
             label1.Text = "Speed up or slow down.";
             label2.Text = "S at top, B at bottom.";
+            label3.Text = "Type in how many lifeforms to spawn here.";
         }
         private void InitializeTimer()
         {
@@ -51,7 +55,7 @@ namespace Lifeforms
                 int[] BB = Array.ConvertAll(BBB, int.Parse);
                 var B = new List<int>(BB);
                 World = L.Adjust(World, B, S);
-                OUT.Text = L.Display(World);
+                pictureBox1.Image = L.Display(World);
             }
             catch
             {
@@ -84,9 +88,9 @@ namespace Lifeforms
             try
             {
                 int multiplier = int.Parse(textBox3.Text);
-                World = L.GenerateWorld(80, 20);
+                World = L.GenerateWorld(640, 320);
                 World = L.Seed(World, multiplier);
-                OUT.Text = L.Display(World);
+                pictureBox1.Image = L.Display(World);
             }
             catch
             {
@@ -143,7 +147,56 @@ namespace Lifeforms
 
         private void Form1_Load(object sender, EventArgs e)
         {
+ 
+        }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            mousex = e.X;
+            mousey = e.Y;
+            try
+            {
+                if (clicking == true)
+                {
+                    World[mousey][mousex].alive = 1;
+                    World[mousey][mousex].next = 1;
+                    OUT.Text = mousex.ToString() + "|" + mousey.ToString();
+                }
+            }
+            catch
+            {
+                OUT.Text = "Issue with the settings - try again!";
+            }
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            clicking = false;
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            clicking = true;
+            mousex = e.X;
+            mousey = e.Y;
+            try
+            {
+                if (clicking == true)
+                {
+                    World[mousey][mousex].alive = 1;
+                    World[mousey][mousex].next = 1;
+                    OUT.Text = mousex.ToString() + "|" + mousey.ToString();
+                }
+            }
+            catch
+            {
+                OUT.Text = "Issue with the settings - try again!";
+            }
         }
     }
 }
