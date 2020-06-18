@@ -17,13 +17,12 @@ namespace Lifeforms
         public Lifeform.Life L = new Lifeform.Life();
         public List<List<Lifeform.Life>> World = new List<List<Lifeform.Life>>();
         public System.Windows.Forms.Timer Timer1;
-        int counter = 80;
+        int counter = 250;
         int mousex = 0;
         int mousey = 0;
         bool clicking = false;
         public Form1()
         {
-            
             InitializeComponent();
             InitializeTimer();
             label1.Text = "Speed up or slow down.";
@@ -100,17 +99,17 @@ namespace Lifeforms
 
         private void button2_Click(object sender, EventArgs e) //SPEED UP
         {
-            if (counter < 100)
+            if (counter < 1000)
             {
-                counter += 10;
+                counter += 200;
                 Timer1.Interval = counter;
             }
         }
 
         private void button3_Click(object sender, EventArgs e) //SLOW DOWN
         {
-            if (counter > 10) {
-                counter -= 10;
+            if (counter > 100) {
+                counter -= 200;
                 Timer1.Interval = counter;
             }
         }
@@ -157,21 +156,6 @@ namespace Lifeforms
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            mousex = e.X;
-            mousey = e.Y;
-            try
-            {
-                if (clicking == true)
-                {
-                    World[mousey][mousex].alive = 1;
-                    World[mousey][mousex].next = 1;
-                    OUT.Text = mousex.ToString() + "|" + mousey.ToString();
-                }
-            }
-            catch
-            {
-                OUT.Text = "Issue with the settings - try again!";
-            }
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -233,6 +217,21 @@ B - 1, 3, 7 / 2, 8                 This one at a certain level(around 200 random
 C - 1 / 1, 8                     Similar to Gnarl in that it creates squares but self-destructs leading to beautiful repetition
 
 Lastly - you can edit the rules during the game!", @"RULES");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            mousex = e.X;
+            mousey = e.Y;
+            if (clicking == true) {
+                World[mousey][mousex].alive = 1;
+                World[mousey][mousex].next = 1;
+            }
         }
     }
 }
