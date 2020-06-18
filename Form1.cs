@@ -81,7 +81,7 @@ namespace Lifeforms
                 Timer1.Enabled = true;
             }
         }
- 
+
         private void button1_Click_1(object sender, EventArgs e) //SPAWN
         {
             try
@@ -108,7 +108,8 @@ namespace Lifeforms
 
         private void button3_Click(object sender, EventArgs e) //SLOW DOWN
         {
-            if (counter > 100) {
+            if (counter > 100)
+            {
                 counter -= 200;
                 Timer1.Interval = counter;
             }
@@ -116,7 +117,7 @@ namespace Lifeforms
 
         private void label1_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,7 +147,7 @@ namespace Lifeforms
 
         private void Form1_Load(object sender, EventArgs e)
         {
- 
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -226,9 +227,10 @@ Lastly - you can edit the rules during the game!", @"RULES");
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            mousex = e.X;
-            mousey = e.Y;
-            if (clicking == true) {
+            if (clicking == true)
+            {
+                mousex = e.X;
+                mousey = e.Y;
                 World[mousey][mousex].alive = 1;
                 World[mousey][mousex].next = 1;
             }
